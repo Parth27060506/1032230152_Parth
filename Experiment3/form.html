@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experiment 3 - Form Validation</title>
+  <style>
+    body{font-family:Arial, sans-serif;background:#f5f5f5;margin:0;padding:24px}
+    .wrap{max-width:720px;margin:0 auto;background:#fff;border:1px solid #ddd;border-radius:10px;padding:22px}
+    h1{margin:0 0 6px;font-size:22px;color:#222}
+    p{margin:0 0 16px;color:#555}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{margin:10px 0}
+    label{display:block;font-size:13px;color:#333;margin-bottom:6px}
+    input, select{width:100%;padding:10px 11px;border:1px solid #cfcfcf;border-radius:8px;font-size:14px;outline:none}
+    input:focus, select:focus{border-color:#4a76ff}
+    .err{display:block;min-height:16px;margin-top:6px;font-size:12px;color:#c0152f}
+    .bad{border-color:#c0152f}
+    .ok{border-color:#1b8f3a}
+    .actions{display:flex;gap:10px;margin-top:10px}
+    button{padding:10px 14px;border:0;border-radius:8px;font-size:14px;cursor:pointer}
+    .btn{background:#2f66ff;color:#fff}
+    .btn2{background:#e9e9e9;color:#222}
+    .note{margin-top:12px;font-size:13px;color:#444}
+    .msg{margin-top:12px;padding:10px 12px;border-radius:8px;display:none}
+    .msg.show{display:block}
+    .msg.good{background:#eaf7ee;border:1px solid #b7e2c3;color:#1b5c2c}
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Experiment 3: Form Validation</h1>
+    <p>Fill the form and check client-side validation using JavaScript.</p>
+
+    <form id="studentForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="fullName" type="text" placeholder="e.g. Aayush Phutane" />
+          <small class="err" id="nameErr"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="e.g. name@gmail.com" />
+          <small class="err" id="emailErr"></small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="10-digit number" inputmode="numeric" />
+          <small class="err" id="phoneErr"></small>
+        </div>
+
+        <div class="field">
+          <label for="age">Age</label>
+          <input id="age" name="age" type="number" placeholder="e.g. 20" />
+          <small class="err" id="ageErr"></small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="course">Course</label>
+          <select id="course" name="course">
+            <option value="">Choose</option>
+            <option value="btech">B.Tech</option>
+            <option value="bca">BCA</option>
+            <option value="mtech">M.Tech</option>
+          </select>
+          <small class="err" id="courseErr"></small>
+        </div>
+
+        <div class="field">
+          <label for="roll">Roll number</label>
+          <input id="roll" name="roll" type="text" placeholder="e.g. 1032230152" />
+          <small class="err" id="rollErr"></small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Submit</button>
+        <button class="btn2" type="reset">Reset</button>
+      </div>
+
+      <div class="msg" id="doneMsg"></div>
+      <div class="note">Validation runs in your browser (no server needed).</div>
+    </form>
+  </div>
+</body>
+</html>
